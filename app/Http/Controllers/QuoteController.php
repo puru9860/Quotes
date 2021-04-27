@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\QuoteResource;
 use App\Models\Quote;
 use Illuminate\Http\Request;
 
@@ -9,15 +10,20 @@ class QuoteController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth'])->except(['index']);
+        $this->middleware(['auth'])->except(['index','randomQuote']);
     }
 
     public function index()
     {
-        $quotes = Quote::latest()->get();
+        $quotes = Quote::latest()->with(['user','favorites'])->get();
         return view('quotes.index',compact('quotes'));
     }
 
+    public function randomQuote()
+    {
+        $quotes = Quote::inRandomOrder()->limit(10)->get();
+        return QuoteResource::collection($quotes);
+    }
     public function create()
     {
         return view('quotes.create');
