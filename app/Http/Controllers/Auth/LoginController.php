@@ -12,7 +12,7 @@ class LoginController extends Controller
         $this->middleware(['guest']);
     }
 
-    public function show()
+    public function create()
     {
         return view('auth.login');
     }

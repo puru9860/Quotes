@@ -400,6 +400,7 @@
     </style>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
 
 </head>
 
@@ -413,13 +414,13 @@
             <ul class="navbar-nav mr-auto">
 
                 <li class="nav-item ">
-                    <a class="nav-link" href="#">Home</a>
+                    <a class="nav-link" href="/">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Dashboard</a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="#">Post</a>
+                    <a class="nav-link" href="{{route('quote.create')}} ">Post</a>
                 </li>
             </ul>
             <!-- Authentication Links -->
