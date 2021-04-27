@@ -19,9 +19,9 @@ class QuoteController extends Controller
         return view('quotes.index',compact('quotes'));
     }
 
-    public function randomQuote()
+    public function randomQuote($limit)
     {
-        $quotes = Quote::inRandomOrder()->limit(10)->get();
+        $quotes = Quote::inRandomOrder()->limit($limit)->get();
         return QuoteResource::collection($quotes);
     }
     public function create()

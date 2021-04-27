@@ -19,4 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/quotes', [QuoteController::class,'randomQuote']);
+Route::get('/quotes/{limit}', [QuoteController::class,'randomQuote']);
