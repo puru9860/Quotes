@@ -3,7 +3,9 @@
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\QuoteController;
+use App\Http\Controllers\UserQuoteController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,4 +40,8 @@ Route::get('/quote/{quote}/edit',[QuoteController::class,'edit'])->name('quote.e
 Route::put('/quote/{quote}',[QuoteController::class,'update'])->name('quote.update');
 Route::delete('/quote/{quote}',[QuoteController::class,'destroy'])->name('quote.destory');
 
+
+Route::get('/users/{user}/quotes',[UserQuoteController::class,'index'])->name('users.quotes');
+
+Route::post('/quotes/{quote}/favorite',[FavoriteController::class,'store'])->name('quotes.favorite');
 

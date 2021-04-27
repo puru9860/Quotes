@@ -31,7 +31,7 @@ class QuoteController extends Controller
 
         $request->user()->quotes()->create($request->only('body'));
 
-        return back();
+        return redirect('/');
     }
 
     public function edit(Quote $quote)

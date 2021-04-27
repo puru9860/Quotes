@@ -42,8 +42,23 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function getRouteKeyName()
+    {
+        return 'username';
+    }
+
     public function quotes()
     {
         return $this->hasMany(Quote::class);
+    }
+
+    public function favourites()
+    {
+        return $this->hasMany(Favorite::class);
+    }
+
+    public function favoritesReceived()
+    {
+        return $this->hasManyThrough(Favorite::class,Quote::class);
     }
 }
